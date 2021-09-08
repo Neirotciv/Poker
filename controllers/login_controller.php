@@ -42,12 +42,12 @@ foreach ($data as $user) {
         $users = json_decode(file_get_contents($users_filename_online), true);
 
         // Définir la place du joueur autour de la table en fonction des joueurs connectés
-        update_player($users_data_filename, $username, "seat", count($users) + 1);
+        update_player_value($users_data_filename, $username, "seat", count($users) + 1);
         
         array_push($users, $username);
         file_put_contents($users_filename_online, json_encode($users));
     }
 }
 
-header("Location: ../play.php");
+header("Location: ../index.php");
 ?>
